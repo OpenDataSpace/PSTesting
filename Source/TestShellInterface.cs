@@ -61,7 +61,7 @@ namespace PSTesting
         /// and load this assembly automatically as a module before each execution in a new runspace.
         /// </summary>
         /// <param name="typeInModule">The type used to look for the assembly module.</param>
-        public TestShellInterface(Type typeInModule) : this(new Uri(typeInModule.Assembly.CodeBase).LocalPath)
+        public TestShellInterface(Type typeInModule) : this(typeInModule == null ? null : new Uri(typeInModule.Assembly.CodeBase).LocalPath)
         {
         }
 
