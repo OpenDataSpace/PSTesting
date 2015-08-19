@@ -3,10 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{630579E0-A4BE-473E-AC79-0BA24CF4A81D}</ProjectGuid>
+    <ProjectGuid>{0661DC5C-E210-47C0-B590-3F5672185750}</ProjectGuid>
     <OutputType>Library</OutputType>
-    <RootNamespace>PSTesting</RootNamespace>
-    <AssemblyName>PSTesting</AssemblyName>
+    <RootNamespace>Tests</RootNamespace>
+    <AssemblyName>Tests</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -28,24 +29,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="nunit.framework">
-      <HintPath>packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
-    </Reference>
     <Reference Include="System.Management.Automation">
-      <HintPath>Libraries\Pash\System.Management.Automation.dll</HintPath>
+      <HintPath>..\Libraries\Pash\System.Management.Automation.dll</HintPath>
     </Reference>
-    <Reference Include="System.Configuration" />
+    <Reference Include="nunit.framework">
+      <HintPath>..\packages\NUnit.2.6.4\lib\nunit.framework.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Source\FileSystemTestHelper.cs" />
-    <Compile Include="Source\TestBase.cs" />
-    <Compile Include="Source\TestShellInterface.cs" />
-    <Compile Include="Source\ITestHelper.cs" />
+    <Compile Include="Test.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <Folder Include="Source\" />
+    <ProjectReference Include="..\PSTesting.csproj">
+      <Project>{630579E0-A4BE-473E-AC79-0BA24CF4A81D}</Project>
+      <Name>PSTesting</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
