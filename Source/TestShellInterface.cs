@@ -234,7 +234,7 @@ namespace PSTesting
 
         private static string JoinCommands(string[] cmds)
         {
-            return cmds == null ? "" : String.Join (";" + Environment.NewLine, cmds);
+            return cmds == null ? "" : String.Join(";" + Environment.NewLine, cmds) + ";" + Environment.NewLine;
         }
     }
 }
